@@ -1,0 +1,8 @@
+create database eroscoin;
+use eroscoin;
+create table Erosid(User_Name varchar(20), User_ID varchar(20) primary key, Password varchar(20), Hint_Question varchar(20), Hint_Answere varchar(20));
+create table Mrecharge(User_ID varchar(20), Mobile_no varchar(10), Operator varchar(20), Payment_Option varchar(20), Card_no varchar(20), Amount varchar(20), foreign key(User_ID) references erosid(User_ID));
+create table Mbill(User_ID varchar(20), Mobile_no varchar(10), Operator varchar(20), Payment_Option varchar(20), Card_no varchar(20), Amount varchar(20), foreign key(User_ID) references erosid(User_ID));
+create table Drecharge(User_ID varchar(20), Operator varchar(20), Viewing_Card_no varchar(20), Payment_Option varchar(20), Card_no varchar(20), Amount varchar(20), foreign key(User_ID) references erosid(User_ID));
+create table Ebillpayment(User_ID varchar(20), Mobile_no varchar(10), Operator varchar(50), Payment_Option varchar(20), Bill_no varchar(20), Card_no varchar(20), Amount varchar(20), foreign key(User_ID) references erosid(User_ID));
+create table Mtransfer(User_ID varchar(20), Sender_account_no varchar(20), Sender_ifsc_code varchar(20), Reciever_account_no varchar(20), Reciever_ifsc_code varchar(20), Amount varchar(20), foreign key(User_ID) references erosid(User_ID));
